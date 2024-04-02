@@ -66,13 +66,13 @@ def yolo_to_coco(image_dir, label_dir, classes_file, output_file):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert YOLO format annotations to COCO format.")
-    parser.add_argument("image_dir", type=str, help="Directory containing images.")
-    parser.add_argument("label_dir", type=str, help="Directory containing YOLO format label files.")
-    parser.add_argument("classes_dir", type=str, help="File containing class names, one per line.")
-    parser.add_argument("--output_file", type=str, default="coco_annotations.json", help="Output file for COCO format annotations (default: coco_annotations.json).")
+    parser.add_argument("--images", type=str, help="Directory containing images.")
+    parser.add_argument("--labels", type=str, help="Directory containing YOLO format label files.")
+    parser.add_argument("--classes", type=str, help="File containing class names, one per line.")
+    parser.add_argument("--output", type=str, default="coco_annotations.json", help="Output file for COCO format annotations (default: coco_annotations.json).")
 
     args = parser.parse_args()
 
-    yolo_to_coco(args.image_dir, args.label_dir, args.classes_dir, args.output_file)
+    yolo_to_coco(args.images, args.labels, args.classes, args.output)
 
     print("Conversion to COCO format completed.")
